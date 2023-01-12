@@ -1,7 +1,7 @@
 import './App.module.scss';
 import Meals from './components/Meals/meals';
 import { useState } from 'react';
-
+import cartContext from './store/cart-context';
 const MEALS_DATA = [
   {
     id: '1',
@@ -59,7 +59,7 @@ const App = () => {
     totalPrice: 0
   });
 
-  const AddMealHandler = (meal) => {
+  const addItem = (meal) => {
 
     const newCart = {...cartData};
     if (cartData.items.indexOf(meal) === -1) {
@@ -73,7 +73,7 @@ const App = () => {
     setCartData(newCart);
 
   };
-  const SubMealHandler = (meal) => {
+  const removeItem = (meal) => {
     
     const newCart = {...cartData};
     meal.amount -= 1;
@@ -85,9 +85,11 @@ const App = () => {
     setCartData(newCart);
   };
   return (
-    <div style={{width: '750rem', height: 200}}>
-      <Meals MealsData={MealsData} onAdd={AddMealHandler} onSub={SubMealHandler} />
-    </div>
+    <cartContext.Provider value={{...cartData, addItem, removeItem}}>
+      <div style={{width: '750rem', height: 200}}>
+        <Meals MealsData={MealsData} />
+      </div>
+    </cartContext.Provider>
   );
 }
 

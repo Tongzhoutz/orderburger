@@ -1,16 +1,17 @@
 import React from'react';
 import classes from './Meal.module.scss';
 import { AddCircleOutline, MinusCircleOutline } from 'antd-mobile-icons';
-
+import cartContext from '../../../store/cart-context';
+import { useContext } from 'react';
 {/* props includes 4 properties: title/desc/price/amount */}
 
 const Meal = (props) => {
-    
+    const cartCTX = useContext(cartContext);
     const addMealHandler = () => {
-        props.onAdd(props.meal);
+        cartCTX.addItem(props.meal);
     }
     const subMealHandler = () =>  {
-        props.onSub(props.meal);
+        cartCTX.removeItem(props.meal);
     }
     return (
         <div className={classes.Meal}>
