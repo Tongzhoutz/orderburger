@@ -68,9 +68,9 @@ const App = () => {
     } else {
       meal.amount += 1;
     }
+    newCart.totalAmount += 1;
+    newCart.totalPrice += meal.price;
     setCartData(newCart);
-    cartData.totalAmount += 1;
-    cartData.totalPrice += meal.price;
 
   };
   const SubMealHandler = (meal) => {
@@ -80,9 +80,9 @@ const App = () => {
     if (meal.amount === 0) {
       newCart.items.splice(meal, 1);
     }
+    newCart.totalAmount -= 1;
+    newCart.totalPrice -= meal.price;
     setCartData(newCart);
-    cartData.totalAmount -= 1;
-    cartData.totalPrice -= meal.price;
   };
   return (
     <div style={{width: '750rem', height: 200}}>
