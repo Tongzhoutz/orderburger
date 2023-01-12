@@ -2,6 +2,7 @@ import './App.module.scss';
 import Meals from './components/Meals/meals';
 import { useState } from 'react';
 import cartContext from './store/cart-context';
+import SearchBar from './components/SearchBar/SearchBar';
 const MEALS_DATA = [
   {
     id: '1',
@@ -59,6 +60,11 @@ const App = () => {
     totalPrice: 0
   });
 
+  const keyWordHandler = (keyword) => {
+    const filteredData = MEALS_DATA.filter(item => item.title.indexOf(keyword) !== -1);
+    setMealsData(filteredData);
+  }
+
   const addItem = (meal) => {
 
     const newCart = {...cartData};
@@ -87,6 +93,7 @@ const App = () => {
   return (
     <cartContext.Provider value={{...cartData, addItem, removeItem}}>
       <div style={{width: '750rem', height: 200}}>
+        <SearchBar onKeyWordsChange={keyWordHandler} />
         <Meals MealsData={MealsData} />
       </div>
     </cartContext.Provider>
