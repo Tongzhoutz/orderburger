@@ -6,6 +6,12 @@ import { AddCircleOutline, MinusCircleOutline } from 'antd-mobile-icons';
 
 const Meal = (props) => {
     
+    const addMealHandler = () => {
+        props.onAdd(props.meal);
+    }
+    const subMealHandler = () =>  {
+        props.onSub(props.meal);
+    }
     return (
         <div className={classes.Meal}>
             <div className={classes.ImgBox}>
@@ -22,12 +28,12 @@ const Meal = (props) => {
                         {
                             (props.meal.amount && props.mealamount !== 0) ? (
                                 <>
-                                    <MinusCircleOutline className={classes.subtract}/>
+                                    <MinusCircleOutline onClick={subMealHandler} className={classes.subtract}/>
                                     <span className={classes.amount}>{props.meal.amount}</span>
                                 </>
                             ) : null
                         }
-                        <AddCircleOutline className={classes.add}/></div>
+                        <AddCircleOutline onClick={addMealHandler} className={classes.add}/></div>
                 </div>
             </div>
         </div>
