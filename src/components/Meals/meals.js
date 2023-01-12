@@ -1,14 +1,12 @@
+import Item from 'antd-mobile/es/components/dropdown/item';
 import React from'react';
 import Meal from './Meal/Meal';
 import classes from './meals.module.scss';
-const Meals = () => {
+const Meals = ({MealsData}) => {
     
     return (
         <div className={classes.meals}>
-            <Meal amount={3} />
-            <Meal />
-            <Meal />
-            <Meal />
+            {MealsData.map(item => <Meal key={item.id} meal={item} />)}
         </div>
     );
 };
