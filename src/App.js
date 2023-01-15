@@ -3,6 +3,7 @@ import Meals from './components/Meals/meals';
 import { useState } from 'react';
 import cartContext from './store/cart-context';
 import SearchBar from './components/SearchBar/SearchBar';
+import Cart from './components/Cart/Cart';
 const MEALS_DATA = [
   {
     id: '1',
@@ -95,6 +96,7 @@ const App = () => {
       <div style={{width: '750rem', height: 200}}>
         <SearchBar onKeyWordsChange={keyWordHandler} />
         <Meals MealsData={MealsData} />
+        <Cart />
       </div>
     </cartContext.Provider>
   );
