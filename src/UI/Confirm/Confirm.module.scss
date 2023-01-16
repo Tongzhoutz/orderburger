@@ -1,0 +1,33 @@
+.outer {
+  z-index: 9999;
+
+  .confirm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    width: 700rem;
+    height: 300rem;
+    margin: auto;
+    border-radius: 20rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    p {
+      font-size: 34rem;
+    }
+
+    Button {
+      --background-color: #FCBF49;
+      width: 160rem;
+    }
+
+    .yesBtn {
+      margin-left: 80rem;
+    }
+  }
+}

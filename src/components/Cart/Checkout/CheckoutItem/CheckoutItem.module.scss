@@ -1,0 +1,32 @@
+.main {
+  display: flex;
+
+  img {
+    width: 150rem;
+  }
+
+  .itemDesc {
+    flex: auto;
+    margin-left: 20rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    h2 {
+      font-size: 24rem;
+    }
+    .priceOuter {
+      display: flex;
+      justify-content: space-between;
+
+      .price {
+        font-size: 26rem;
+        font-weight: 700;
+      }
+      .price::before {
+        content: '$';
+        font-weight: 400;
+        font-size: 24rem;
+      }
+    }
+  }
+}

@@ -1,4 +1,5 @@
-.cart {
+
+.bar {
   position: fixed;
   display: flex;
   justify-content: space-between;
@@ -13,38 +14,14 @@
   color: #fff;
   z-index: 9999;
 
-  .icon {
-    position: absolute;
-    width: 80rem;
-    bottom: -10rem;
-
-    img {
-      width: 100%;
-    }
-    .amount {
-      position: absolute;
-      background-color: #f00;
-      width: 30rem;
-      height: 30rem;
-      color: #fff;
-      border-radius: 20rem;
-      right: -6rem;
-      text-align: center;
-    }
-  }
-
   .totalPrice, .noItem {
     display: flex;
     align-items: center;
-    margin-left: 120rem;
-    font-size: 36rem;
+    margin-left: 40rem;
+    font-size: 50rem;
   }
   .totalPrice::before{
       content: '$ ';
-  }
-
-  .noItem {
-    color: #aaa;
   }
 
   .btn {

@@ -7,7 +7,7 @@ const Meals = ({MealsData}) => {
     return (
         <>
         <div className={classes.meals}>
-            {MealsData.map(item => <Meal key={item.id} meal={item} />)}
+            {MealsData.map(item => <Meal key={item.id} meal={item} containDesc={true}/>)}
         </div>
         </>
     );

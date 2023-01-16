@@ -1,19 +1,45 @@
 import classes from './Cart.module.scss';
 import iconImg from '../../assets/bag.png';
-import { Button } from 'antd-mobile';
+import { Button, ConfigProvider } from 'antd-mobile';
 import cartContext from '../../store/cart-context';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import CartDetail from './CartDetail/CartDetail';
+import Checkout from './Checkout/Checkout';
 
 const Cart = () => {
 
   const cartCTX = useContext(cartContext);
   const isDisabled = cartCTX.totalAmount === 0 ? true : false;
+  const [showDetails, setShowDetails] = useState(false);
+  const [showCheckout, setShowCheckout] = useState(false);
+
+  const toggleDetailsHandler = () => {
+    if (isDisabled)  {
+      setShowDetails(false);
+      return;
+    } 
+    setShowDetails(preState => !preState);
+  }
+
+  const checkoutHandler = (e) => {
+    setShowCheckout(true);
+  }
+
+  const closeHandler = () => {
+    setShowCheckout(false);
+  }
 
   return (
-    <div className={classes.cart}>
-       <div className={classes.icon}>
+    <div onClick={toggleDetailsHandler} className={classes.cart}>
+      {showCheckout && <Checkout onClose={closeHandler}/>}
+      {showDetails && <CartDetail/> }
+       <div  className={classes.icon}>
         <img src={iconImg} alt="" />
-        <span className={classes.amount}>{cartCTX.totalAmount}</span>
+        {isDisabled ? null : 
+          <span className={classes.amount}>
+            {cartCTX.totalAmount}
+          </span>
+         }
        </div> 
 
       {isDisabled ? 
@@ -21,7 +47,7 @@ const Cart = () => {
        :
        <div className={classes.totalPrice}>{cartCTX.totalPrice}</div>
       }
-       <Button block disabled={isDisabled} shape='rounded' className={classes.btn}>Pay</Button>
+       <Button onClick={checkoutHandler} block disabled={isDisabled} shape='rounded' className={classes.btn}>Pay</Button>
        
     </div>
 )}

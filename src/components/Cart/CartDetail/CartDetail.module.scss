@@ -1,0 +1,36 @@
+.cartDetail {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  width: 750rem;
+  max-height: 1000rem;
+  background-color: #fff;
+  bottom: 0;
+  padding-bottom: 130rem;
+  border-top-left-radius: 40rem;
+  border-top-right-radius: 40rem;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+
+    h4 {
+      margin: 0;
+      padding: 30rem 30rem;
+      font-size: 28rem;
+    }
+
+    .delete {
+      padding: 30rem 30rem;
+      span{
+        margin-left: 20rem;
+        font-size: 30rem;
+        color: #aaa;
+      }
+    }
+  }
+
+  .foodList {
+    overflow: auto;
+  }
+}

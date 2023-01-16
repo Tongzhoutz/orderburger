@@ -4,6 +4,7 @@ import { useState } from 'react';
 import cartContext from './store/cart-context';
 import SearchBar from './components/SearchBar/SearchBar';
 import Cart from './components/Cart/Cart';
+
 const MEALS_DATA = [
   {
     id: '1',
@@ -91,8 +92,16 @@ const App = () => {
     newCart.totalPrice -= meal.price;
     setCartData(newCart);
   };
+
+  const clearCart = (meal) => {
+    const newCart = {...cartData};
+    newCart.items.forEach(item => delete item.amount);
+    newCart.totalAmount = 0;
+    newCart.totalPrice = 0;
+    setCartData(newCart);
+  }
   return (
-    <cartContext.Provider value={{...cartData, addItem, removeItem}}>
+    <cartContext.Provider value={{...cartData, addItem, removeItem, clearCart}}>
       <div style={{width: '750rem', height: 200}}>
         <SearchBar onKeyWordsChange={keyWordHandler} />
         <Meals MealsData={MealsData} />
