@@ -11,17 +11,17 @@
    - when the cart is non-empty, a detail page will pop up when the bar is hit.
    - when pay button is clicked, a separate checkout page will appear.
 
-### Food list page
+### Food list page &darr;
 <img src='public/img/show/foodList.png' alt="" width="200" >
 
-### Search page
+### Search page &darr;
 
 <img src='public/img/show/SearchPage.png' alt="" width="200">
 
-### Cart detail Page
+### Cart detail Page &darr;
 <img src='public/img/show/cartDetail.png' alt="" width='200'>
 
-### checkout page
+### checkout page &darr;
 <img src='public/img/show/checkoutPage.png' alt="" width='200'>
 
 ## Lessons learned
