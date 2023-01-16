@@ -1,8 +1,8 @@
 import classes from './Cart.module.scss';
 import iconImg from '../../assets/bag.png';
-import { Button, ConfigProvider } from 'antd-mobile';
+import { Button  } from 'antd-mobile';
 import cartContext from '../../store/cart-context';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import CartDetail from './CartDetail/CartDetail';
 import Checkout from './Checkout/Checkout';
 
@@ -12,6 +12,13 @@ const Cart = () => {
   const isDisabled = cartCTX.totalAmount === 0 ? true : false;
   const [showDetails, setShowDetails] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
+
+  useEffect(() => {
+    if (isDisabled) {
+      setShowDetails(false);
+      setShowCheckout(false);
+    }
+  })
 
   const toggleDetailsHandler = () => {
     if (isDisabled)  {

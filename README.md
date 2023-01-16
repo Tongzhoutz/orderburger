@@ -27,12 +27,13 @@
 ## Lessons learned
   - Use *rem* as the unit of font-size, instead of *px*
   - Use *useContext* to populize cart data across different components.
+  - Use *useEffect* to close the cart page and checkout page when the cart is empty.
   - Use backdrop under a different root to improve app's maintenance and scalability.
   - a design flow chart is below:
 
 <img src='public/img/show/flow.png' alt="">
 
 ## Future directions
-  - When cart is empty both on the cart page or the checkout page, the cart is supposed to automatically vanish, but I haven't resolved this issue.
+  - To integrate with MongoDB to test back-end communications.
   
 
