@@ -12,17 +12,17 @@
    - when pay button is clicked, a separate checkout page will appear.
 
 ### Food list page
-<img src='public/img/show/foodList.png' alt="">
+<img src='public/img/show/foodList.png' alt="" width="200" >
 
 ### Search page
 
-<img src='public/img/show/SearchPage.png' alt="">
+<img src='public/img/show/SearchPage.png' alt="" width="200">
 
 ### Cart detail Page
-<img src='public/img/show/cartDetail.png' alt="">
+<img src='public/img/show/cartDetail.png' alt="" width='200'>
 
 ### checkout page
-<img src='public/img/show/checkoutPage.png' alt="">
+<img src='public/img/show/checkoutPage.png' alt="" width='200'>
 
 ## Lessons learned
   - Use *rem* as the unit of font-size, instead of *px*
