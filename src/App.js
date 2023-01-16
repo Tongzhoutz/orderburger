@@ -1,6 +1,6 @@
 import './App.module.scss';
 import Meals from './components/Meals/meals';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import cartContext from './store/cart-context';
 import SearchBar from './components/SearchBar/SearchBar';
 import Cart from './components/Cart/Cart';
@@ -62,10 +62,23 @@ const App = () => {
     totalPrice: 0
   });
 
+  const [keyword, setKeyword] = useState("");
   const keyWordHandler = (keyword) => {
-    const filteredData = MEALS_DATA.filter(item => item.title.indexOf(keyword) !== -1);
-    setMealsData(filteredData);
-  }
+      setKeyword(keyword);
+  } 
+
+  useEffect( () => {
+    const timer = setTimeout(() => {
+      console.log("hahahha");
+      const filteredData = MEALS_DATA.filter(item => item.title.indexOf(keyword) !== -1);
+      setMealsData(filteredData);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [keyword])
+
 
   const addItem = (meal) => {
 
@@ -103,7 +116,7 @@ const App = () => {
   return (
     <cartContext.Provider value={{...cartData, addItem, removeItem, clearCart}}>
       <div style={{width: '750rem', height: 200}}>
-        <SearchBar onKeyWordsChange={keyWordHandler} />
+        <SearchBar keyword={keyword} onKeyWordsChange={keyWordHandler} />
         <Meals MealsData={MealsData} />
         <Cart />
       </div>
