@@ -20,7 +20,7 @@ const CartDetail = () => {
   }
 
   const OKhandler = (e) => {
-    cartCTX.clearCart();
+    cartCTX.cartDispatch({type:'CLEAR'});
   }
   return (
     <Backdrop onClick={cancelHandler}>

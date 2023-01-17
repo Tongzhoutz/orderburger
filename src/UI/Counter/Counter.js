@@ -7,10 +7,10 @@ const Counter = (props) => {
 
     const cartCTX = useContext(cartContext);
     const addMealHandler = () => {
-        cartCTX.addItem(props.meal);
+        cartCTX.cartDispatch({type:'ADD', meal: props.meal});
     }
     const subMealHandler = () =>  {
-        cartCTX.removeItem(props.meal);
+        cartCTX.cartDispatch({type:'REMOVE', meal: props.meal});
     }
   return (
             <div>
