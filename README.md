@@ -26,9 +26,9 @@
 
 ## Lessons learned
   - Use *rem* as the unit of font-size, instead of *px*
-  - Use *useContext* to populize cart data across different components.
-  - Use *useEffect* to close the cart page and checkout page when the cart is empty.
-  - Use *useReducer* to simplify cartData's methods and its related *useContext*.
+  - Use **useContext** to populize cart data across different components.
+  - Use **useEffect** to close the cart page and checkout page when the cart is empty.
+  - Use **useReducer** to simplify cartData's methods and its related *useContext*.
   - Use backdrop under a different root to improve app's maintenance and scalability.
   - a design flow chart is below:
 
